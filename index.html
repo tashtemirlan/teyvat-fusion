@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Teyvat Fusion</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="screen"></div>
+    <div id="battle" hidden>
+      <aside id="panel">
+        <input id="search" type="search" placeholder="" />
+        <div id="filters"></div>
+        <div id="cards"></div>
+      </aside>
+      <main id="board"></main>
+      <aside id="rail">
+        <button id="exit"></button>
+        <div class="stat">
+          <small id="mora-label"></small>
+          <span id="mora"></span>
+        </div>
+        <div class="stat">
+          <small id="wave-label"></small>
+          <span id="wave"></span>
+          <div class="bar"><div id="wave-bar"></div></div>
+          <small id="last"></small>
+        </div>
+        <div class="tools">
+          <button id="glove"></button>
+          <button id="shovel"></button>
+          <button id="pause"></button>
+          <button id="battle-almanac"></button>
+        </div>
+        <div class="speeds">
+          <button class="speed" data-speed="1">x1</button>
+          <button class="speed" data-speed="2">x2</button>
+          <button class="speed" data-speed="3">x3</button>
+        </div>
+        <div id="info"></div>
+        <div id="hint"></div>
+      </aside>
+      <div id="overlay" hidden></div>
+      <div id="almanac-modal" hidden></div>
+    </div>
+    <div id="toast" hidden></div>
+    <div id="loading"></div>
+    <div id="enemy-tip" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
