@@ -44,8 +44,11 @@ const GOD_DISPLAY = 132;
 const MAX_NUMBERS = 30;
 const ENEMY_DISPLAY: Record<number, number> = { 1: 74, 2: 84, 4: 96, 9: 112, 16: 132, 30: 160, 60: 230 };
 
+// Путь к спрайтам от корня сайта: на GitHub Pages игра лежит в подпапке репозитория.
+const SPRITES = `${import.meta.env.BASE_URL}sprites/`;
+
 // Список готовых спрайтов создаёт рендер моделей, без него игра показывает фишки.
-const spriteIds: string[] = await fetch('/sprites/manifest.json')
+const spriteIds: string[] = await fetch(`${SPRITES}manifest.json`)
   .then((response) => (response.ok ? response.json() : []))
   .catch(() => []);
 const hasSprite = (id: string) => spriteIds.includes(id);
@@ -59,7 +62,7 @@ function rootsOf(def: UnitDef): string[] {
 
 // Первый кадр спрайта как портрет: size задаёт высоту кадра, x и y сдвигают его к голове.
 function portrait(key: string, size: number, x = 0, y = 0) {
-  return hasSprite(key) ? `background:url(/sprites/${key}.png) ${x}px ${y}px / ${size * SPRITE_FRAMES}px ${size}px no-repeat` : '';
+  return hasSprite(key) ? `background:url(${SPRITES}${key}.png) ${x}px ${y}px / ${size * SPRITE_FRAMES}px ${size}px no-repeat` : '';
 }
 
 const css = (color: number) => `#${color.toString(16).padStart(6, '0')}`;
@@ -153,7 +156,7 @@ function showMenu() {
         </label>
         <input id="import-file" type="file" accept="application/json" hidden />
         <div class="showcase">
-          ${['columbina', 'anastasya', 'furina'].map((id) => `<div class="face" style="background-image:url(/sprites/${id}.png);background-size:${SPRITE_FRAMES * 100}% 100%"></div>`).join('')}
+          ${['columbina', 'anastasya', 'furina'].map((id) => `<div class="face" style="background-image:url(${SPRITES}${id}.png);background-size:${SPRITE_FRAMES * 100}% 100%"></div>`).join('')}
         </div>
       </section>
       <section class="menu-worlds">
@@ -590,7 +593,7 @@ class BattleScene extends Phaser.Scene {
   }
 
   private loadSprite(id: string) {
-    this.load.spritesheet(id, `/sprites/${id}.png`, { frameWidth: FRAME_SIZE, frameHeight: FRAME_SIZE });
+    this.load.spritesheet(id, `${SPRITES}${id}.png`, { frameWidth: FRAME_SIZE, frameHeight: FRAME_SIZE });
   }
 
   // Спрайт готов к показу, иначе ставится в очередь загрузки.

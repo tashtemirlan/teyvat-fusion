@@ -37,4 +37,9 @@ const bakePlugin = (): Plugin => ({
   },
 });
 
-export default defineConfig({ plugins: [bakePlugin()], build: { target: 'esnext' } });
+// Относительный base при сборке: игра работает и на GitHub Pages в подпапке, и с любого другого хостинга.
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? './' : '/',
+  plugins: [bakePlugin()],
+  build: { target: 'esnext' },
+}));

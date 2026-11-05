@@ -15,6 +15,8 @@
 [![Языки](https://img.shields.io/badge/языков-52-f0b84a?style=for-the-badge)](src/i18n/langs.ts)
 [![License: MIT](https://img.shields.io/badge/лицензия-MIT-e2574c?style=for-the-badge)](LICENSE)
 
+<a href="https://tashtemirlan.github.io/teyvat-fusion/"><img src="https://img.shields.io/badge/▶_ИГРАТЬ_В_БРАУЗЕРЕ-f0b84a?style=for-the-badge&labelColor=1b1440" alt="Играть в браузере" height="42"></a>
+
 [English](README.md) · **Русский**
 
 [✨ Возможности](#-возможности) · [🧬 Скрещивание](#-как-работает-скрещивание) · [🐉 Боссы](#-боссы) · [🚀 Запуск](#-быстрый-старт) · [🎮 Управление](#-управление) · [🗂 Проект](#-структура-проекта)
@@ -149,6 +151,12 @@ flowchart LR
 
 ## 🚀 Быстрый старт
 
+### ▶ Играть онлайн
+
+**[https://tashtemirlan.github.io/teyvat-fusion/](https://tashtemirlan.github.io/teyvat-fusion/)**. Ничего ставить не нужно: игра работает в любом современном браузере, прогресс сохраняется локально.
+
+### 🛠 Запустить у себя
+
 Нужен **Node.js 20+**.
 
 ```bash
@@ -158,10 +166,9 @@ npm install
 npm run dev
 ```
 
-> [!IMPORTANT]
-> Спрайтов **в репозитории нет**: игра рендерит их сама из своих блочных моделей. При первом запуске, пока работает `npm run dev`, открой
-> **http://localhost:5173/tools/bake.html** и дождись, пока в логе появится сообщение о завершении.
-> Спрайты появятся в `public/sprites/`.
+> [!TIP]
+> Спрайты в `public/sprites/` игра рендерит сама из своих блочных моделей. Если поменяешь модель в `src/art`,
+> открой **http://localhost:5173/tools/bake.html**, пока работает `npm run dev`, и спрайты перерендерятся.
 
 Потом открой **http://localhost:5173** и играй. 🎉
 
@@ -170,6 +177,8 @@ npm run dev
 | `npm run dev` | Сервер разработки с горячей перезагрузкой |
 | `npm test` | 60 тестов боя и локализации |
 | `npm run build` | Проверка типов и сборка в `dist/` |
+
+Каждый пуш в `main` автоматически проходит тесты, собирается и выкладывается на GitHub Pages через [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
 ## 🎮 Управление
 

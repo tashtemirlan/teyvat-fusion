@@ -15,6 +15,8 @@
 [![Languages](https://img.shields.io/badge/languages-52-f0b84a?style=for-the-badge)](src/i18n/langs.ts)
 [![License: MIT](https://img.shields.io/badge/license-MIT-e2574c?style=for-the-badge)](LICENSE)
 
+<a href="https://tashtemirlan.github.io/teyvat-fusion/"><img src="https://img.shields.io/badge/▶_PLAY_IN_BROWSER-f0b84a?style=for-the-badge&labelColor=1b1440" alt="Play in browser" height="42"></a>
+
 **English** · [Русский](README.ru.md)
 
 [✨ Features](#-features) · [🧬 Fusion](#-how-fusion-works) · [🐉 Bosses](#-bosses) · [🚀 Quick start](#-quick-start) · [🎮 Controls](#-controls) · [🗂 Project](#-project-structure)
@@ -149,6 +151,12 @@ Right-to-left scripts (Arabic, Persian, Hebrew, Urdu) are laid out right to left
 
 ## 🚀 Quick start
 
+### ▶ Play online
+
+**[https://tashtemirlan.github.io/teyvat-fusion/](https://tashtemirlan.github.io/teyvat-fusion/)**. No install needed: it runs in any modern browser, and your progress is saved locally.
+
+### 🛠 Run locally
+
 You need **Node.js 20+**.
 
 ```bash
@@ -158,10 +166,9 @@ npm install
 npm run dev
 ```
 
-> [!IMPORTANT]
-> Sprites are **not stored in the repo**: the game renders them from its own blocky models. On first run, open
-> **http://localhost:5173/tools/bake.html** while `npm run dev` is running and wait until the log says it's done.
-> The sprites appear in `public/sprites/`.
+> [!TIP]
+> Sprites in `public/sprites/` are rendered by the game itself from its blocky models. If you change a model in `src/art`,
+> open **http://localhost:5173/tools/bake.html** while `npm run dev` is running to re-render them.
 
 Then open **http://localhost:5173** and play. 🎉
 
@@ -170,6 +177,8 @@ Then open **http://localhost:5173** and play. 🎉
 | `npm run dev` | Dev server with hot reload |
 | `npm test` | Runs the 60 battle and localization tests |
 | `npm run build` | Type-checks and builds into `dist/` |
+
+Every push to `main` is tested, built and deployed to GitHub Pages automatically by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
 ## 🎮 Controls
 
