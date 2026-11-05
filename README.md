@@ -76,19 +76,9 @@ Every hero and every hybrid is unlocked. Waves get **bigger, not tankier**: enem
 
 ## 🧬 How fusion works
 
-```mermaid
-flowchart LR
-    A["🏹 Hero"] -->|"+ another hero"| H["🧪 Hybrid<br/>tier 2"]
-    H -->|"+ hero or hybrid"| H2["🧪 Hybrid<br/>tier 3 … 7"]
-    A -->|"+ same hero"| S1["⭐ Awakening"]
-    S1 -->|"+ same hero"| S2["⭐⭐ Ascension"]
-    S2 -->|"+ same hero"| S3["⭐⭐⭐ Apex"]
-    G1["💧 Furina"] --> D["🌊🌙 Goddess duo"]
-    G2["🌙 Columbina"] --> D
-    D -->|"+ third goddess"| GOD["👑 God-tier triad"]
-    G3["❄️ Tsaritsa"] --> GOD
-    P["🍞 Paimon"] -->|"+ any hero"| PH["💰 Mora-making hybrid"]
-```
+<div align="center">
+<img src=".github/readme/fusion_en.png" alt="Fusion examples: hero + hero, goddesses, Paimon" width="95%">
+</div>
 
 - 🖱 **Hover any hero** to see its stats **and every recipe it can go into next**.
 - 🧤 **The glove** (`G`) lets you drag a unit onto another one and fuse them right on the field.
@@ -211,15 +201,13 @@ teyvat-fusion/
 └── 📄 index.html
 ```
 
-```mermaid
-flowchart LR
-    M["🧱 Blocky models<br/>src/art"] -->|three.js| B["🛠 tools/bake"]
-    B --> S["🖼 Sprite sheets<br/>public/sprites"]
-    D["📊 Data<br/>src/data"] --> SIM["⚙️ Battle sim<br/>src/sim"]
-    SIM -->|events| R["🎮 Phaser renderer<br/>src/main.ts"]
-    S --> R
-    I["🌍 i18n"] --> R
-```
+<div align="center">
+
+**🧱 Blocky models** `src/art` → **🛠 Bake** `tools/bake` → **🖼 Sprite sheets** `public/sprites`
+
+**📊 Data** `src/data` → **⚙️ Battle sim** `src/sim` → *events* → **🎮 Phaser renderer** `src/main.ts` ← **🌍 i18n** `src/i18n`
+
+</div>
 
 The battle simulation knows nothing about rendering, so the rules are fully covered by fast unit tests.
 
